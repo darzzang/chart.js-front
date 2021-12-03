@@ -4,7 +4,7 @@ import StackedBarChart from './BarChart/StackedBarChart';
 import StackedBarChartWithGroups from './BarChart/StackedBarChartWithGroups';
 import FloatingBarChart from './BarChart/FloatingBarChart';
 import BarChartBorderRadius from './BarChart/BarChartBorderRadius';
-import LineChart from './components/LineChart';
+import LineChart from './LineChart/LineChart';
 import Layout from './components/Layout';
 
 function App() {
