@@ -1,33 +1,31 @@
 import Chart from "chart.js/auto"
 import { useEffect, useRef } from "react"
 
-function HorizontalBarChart() {
+function LineChart(props) {
+    const { data, labels } = props
     const canvasDom = useRef(null)
     useEffect(() => {
         const ctx = canvasDom.current.getContext('2d')
-        const horizontalBarChart = new Chart(ctx, {
-            type: 'bar',
+        const lineChart = new Chart(ctx, {
+            type: 'line',
             data: {
-                labels: [19, 20, 21, 22],
+                labels: labels,
                 datasets: [
                     {
-                        data: [50, 40, 30, 35, 40]
+                        data: data
                     }
                 ]
             },
-            options: {
-                indexAxis: "y",
-            }
         })
         return () => {
-            horizontalBarChart.destroy();
+            lineChart.destroy()
         }
-    }, [])
+    })
     return (
         <div>
-            <canvas ref={canvasDom}/>
+            <canvas ref={canvasDom} />
         </div>
     )
 }
 
-export default HorizontalBarChart
+export default LineChart

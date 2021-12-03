@@ -1,45 +1,48 @@
+
 import React, { useRef, useEffect } from 'react';
 // import { Chart, registerables } from 'chart.js'
 // Chart.register(...registerables);
 import Chart from 'chart.js/auto';
 
-function VerticalBarChart() {
-  console.log();
+function BarChartBorderRadius(props) {
+  const { data, labels } = props;
   const canvasDom = useRef(null);
   useEffect(() => {
     const ctx = canvasDom.current.getContext('2d');
-    const verticalBarChart = new Chart(ctx, {
+    const barChartBorderRadius = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: [2017, 2018, 2019, 2020, 2021],
+        labels: labels,
         datasets: [
           {
-            label: '월별 버스 이용량 통계',
-            data: [1, 5, 10, 4, 2],
-            backgroundColor: "rgba(255, 0, 0, 0.3)"
+            labels: labels,
+            data: data,
+            backgroundColor: "rgba(255, 0, 0, 0.3)",
+            borderRadius: 10,
+            borderSkipped: false,
           },
           {
-            label: '월별 버스 이용량 통계',
-            data: [1, 5, 10, 4, 2],
+            labels: labels,
+            data: data,
             backgroundColor: "rgba(0, 255, 0, 0.3)"
           },
           {
-            label: '월별 버스 이용량 통계',
-            data: [1, 5, 10, 4, 2],
+            labels: labels,
+            data: data,
             backgroundColor: "rgba(0, 0, 255, 0.3)"
           },
         ]
       },
     });
     return () => {
-        verticalBarChart.destroy();
+        barChartBorderRadius.destroy();
     };
   }, []);
   return (
     <div>
-      <canvas ref={canvasDom}/>
+      <canvas ref={canvasDom} />
     </div>
   );
 }
 
-export default VerticalBarChart;
+export default BarChartBorderRadius;
