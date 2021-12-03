@@ -1,28 +1,25 @@
 import Chart from "chart.js/auto"
 import { useEffect, useRef } from "react"
 
-function HorizontalBarChart() {
+function LineChart () {
     const canvasDom = useRef(null)
     useEffect(() => {
         const ctx = canvasDom.current.getContext('2d')
-        const horizontalBarChart = new Chart(ctx, {
+        const lineChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: [19, 20, 21, 22],
+                labels: [2018, 2018, 2020, 2021, 2022],
                 datasets: [
                     {
-                        data: [50, 40, 30, 35, 40]
+                        data: [1, 4, 2, 6, 9]
                     }
                 ]
             },
-            options: {
-                indexAxis: "y",
-            }
         })
         return () => {
-            horizontalBarChart.destroy();
+            lineChart.destroy()
         }
-    }, [])
+    }, )
     return (
         <div>
             <canvas ref={canvasDom}/>
@@ -30,4 +27,4 @@ function HorizontalBarChart() {
     )
 }
 
-export default HorizontalBarChart
+export default LineChart
