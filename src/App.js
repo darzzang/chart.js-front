@@ -19,6 +19,7 @@ function App() {
       {/* <StackedBarChartWithGroups data={data} lables={labels}/> */}
       <FloatingBarChart data={data} lables={labels}/>
       <BarChartBorderRadius data={data} lables={labels}/>
+      <SteppedLineChart data={data} lables={labels}/>
     </Layout>
   );
 }
