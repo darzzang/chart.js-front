@@ -9,21 +9,27 @@ import Layout from './components/Layout';
 import MultiAxisLineChart from './components/LineChart/MultiAxisLineChart';
 import SteppedLineChart from './components/LineChart/SteppedLineChart';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function App() {
   const data = [50, 40, 30, 35, 40]
   const labels = [2017, 2018, 2019, 2020, 2021]
-
-  useEffect(() => {
+  const [csv, setCsv] = useState([1, 2, 3, 4])
+  const getCsvWithCallback = useCallback(async () => {
     try {
       const url = 'http://localhost:3001/csv'
-      const res = axios.get(url)
-      console.log(res)
+      const axiosObj = await axios.get(url)
+      const res = await axiosObj.data
+      setCsv(res)
     } catch (e) {
       console.log(e);
     }
   }, [])
+
+  useEffect(() => {
+    getCsvWithCallback()
+  }, [getCsvWithCallback])
+  console.log(csv)
 
   return (
     <Layout>
