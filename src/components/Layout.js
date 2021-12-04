@@ -4,7 +4,7 @@ function Layout(props) {
     const { children } = props;
     const layoutStyle = {
         display: "grid",
-        gridTemplateClolumns: "1fr 1fr",
+        gridTemplateColumns: "1fr 1fr",
         border: "1px solid rgba(232, 232, 232, 1)"
     };
     const myChildren = children.map((child) => {

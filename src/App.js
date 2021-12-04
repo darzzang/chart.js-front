@@ -1,25 +1,41 @@
-import VerticalBarChart from './BarChart/VerticalBarChart';
-import HorizontalBarChart from './BarChart/HorizontalBarChart'
-import StackedBarChart from './BarChart/StackedBarChart';
-import StackedBarChartWithGroups from './BarChart/StackedBarChartWithGroups';
-import FloatingBarChart from './BarChart/FloatingBarChart';
-import BarChartBorderRadius from './BarChart/BarChartBorderRadius';
-import LineChart from './LineChart/LineChart';
+import VerticalBarChart from './components/BarChart/VerticalBarChart';
+import HorizontalBarChart from './components/BarChart/HorizontalBarChart'
+import StackedBarChart from './components/BarChart/StackedBarChart';
+import StackedBarChartWithGroups from './components/BarChart/StackedBarChartWithGroups';
+import FloatingBarChart from './components/BarChart/FloatingBarChart';
+import BarChartBorderRadius from './components/BarChart/BarChartBorderRadius';
+import LineChart from './components/LineChart/LineChart';
 import Layout from './components/Layout';
+import MultiAxisLineChart from './components/LineChart/MultiAxisLineChart';
+import SteppedLineChart from './components/LineChart/SteppedLineChart';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
   const data = [50, 40, 30, 35, 40]
   const labels = [2017, 2018, 2019, 2020, 2021]
+
+  useEffect(() => {
+    try {
+      const url = 'http://localhost:3001/csv'
+      const res = axios.get(url)
+      console.log(res)
+    } catch (e) {
+      console.log(e);
+    }
+  }, [])
+
   return (
     <Layout>
-      <VerticalBarChart data={data} lables={labels}/>
-      <HorizontalBarChart data={data} lables={labels}/>
-      <LineChart data={data} lables={labels}/>
-      <StackedBarChart data={data} lables={labels}/>
-      {/* <StackedBarChartWithGroups data={data} lables={labels}/> */}
-      <FloatingBarChart data={data} lables={labels}/>
-      <BarChartBorderRadius data={data} lables={labels}/>
-      <SteppedLineChart data={data} lables={labels}/>
+      <VerticalBarChart data={data} labels={labels} />
+      <HorizontalBarChart data={data} labels={labels} />
+      <LineChart data={data} labels={labels} />
+      <StackedBarChart data={data} labels={labels} />
+      <StackedBarChartWithGroups data={data} labels={labels} />
+      <FloatingBarChart data={data} labels={labels} />
+      <BarChartBorderRadius data={data} labels={labels} />
+      <MultiAxisLineChart data={data} labels={labels} />
+      <SteppedLineChart data={data} labels={labels} />
     </Layout>
   );
 }
