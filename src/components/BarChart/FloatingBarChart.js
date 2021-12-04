@@ -13,21 +13,21 @@ function FloatingBarChart(props) {
                 datasets: [
                     {
                         data: data.map(() => {
-                            return [100, -100]
+                            return [100, -80]
                         }),
                         backgroundColor: 'rgba(255, 0, 0, 0.3)',
                         stack: "Group 0"
                     },
                     {
                         data: data.map(() => {
-                            return [100, -20]
+                            return [100, -80]
                         }),
                         backgroundColor: 'rgba(0, 255, 0, 0.3)',
                         stack: "Group 1"
                     },
                     {
                         data: data.map(() => {
-                            return [100, -20]
+                            return [100, -80]
                         }),
                         backgroundColor: 'rgba(0, 0, 255, 0.3)',
                         stack: "Group 2"

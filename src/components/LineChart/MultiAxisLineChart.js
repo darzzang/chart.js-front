@@ -20,7 +20,7 @@ function MultiAxisLineChart(props) {
                     },
                     {
                         data: data.map((number) => {
-                            return number * 4
+                            return number % 4
                         }),
                         yAxisID: 'y1',
                         borderColor: "rgba(54, 32, 244, 0.5)",
@@ -38,7 +38,8 @@ function MultiAxisLineChart(props) {
                     y1: {
                         type: 'linear',
                         display: true,
-                        position: "right"
+                        position: "right",
+
                     },
                 }
             }

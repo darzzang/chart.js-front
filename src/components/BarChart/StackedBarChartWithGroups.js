@@ -24,7 +24,7 @@ function StackedBarChartWithGroups(props) {
                     {
                         data: data,
                         backgroundColor: "rgba(0, 0, 255, 0.3)",
-                        stack: "Group 2"
+                        stack: "Group 1"
                     },
                 ]
             },
@@ -38,7 +38,7 @@ function StackedBarChartWithGroups(props) {
                     },
                 },
                 interaction: {
-                    intersect: false
+                    intersect: false,
                 }
             }
         })
